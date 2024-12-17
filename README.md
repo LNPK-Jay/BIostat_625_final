@@ -105,7 +105,7 @@ The project pipeline consists of the following steps:
 
 ### Sample Results
 <p align="center" style="margin-top: -40px; margin-bottom: 5px;">
-    <img src="sample_images.png" alt="Sample Results" width="500" style="margin-top: 0px; margin-bottom: 0px;"/>
+    <img src="sample_images.png" alt="Sample Results" width="500" style="margin-top: -5px; margin-bottom: 0px;"/>
 </p>
 
 ---
