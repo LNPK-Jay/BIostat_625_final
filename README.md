@@ -1,124 +1,127 @@
 
 # U-Net Based Retinal Vessel Segmentation
 
-## Table of Contents
-1. [Project Description](#project-description)
-2. [Dataset](#dataset)
-3. [Method](#method)
-    - [Image Processing](#image-processing)
-    - [Loss Function](#loss-function)
-    - [Model and Optimizer](#model-and-optimizer)
-    - [Adaptive Batch Normalization](#adaptive-batch-normalization)
-    - [Training](#training)
-    - [Evaluation and Visualization](#evaluation-and-visualization)
-4. [Results](#results)
-5. [How to Run](#how-to-run)
-6. [References](#references)
+![Project Status](https://img.shields.io/badge/Status-Completed-green)
+![License](https://img.shields.io/badge/License-MIT-blue)
+![Python](https://img.shields.io/badge/Python-3.x-yellow)
+![Framework](https://img.shields.io/badge/Framework-PyTorch-orange)
 
 ---
 
 ## Project Description
 
-This project focuses on **retinal vessel segmentation** using a U-Net architecture with a ResNet-34 encoder. The goal is to detect and segment blood vessels in retinal images, which is essential for diagnosing diseases like diabetic retinopathy and cardiovascular conditions.
+This project implements **retinal vessel segmentation** using a **U-Net architecture** with a **ResNet-34 encoder**. Retinal vessel segmentation is critical for diagnosing diseases such as **diabetic retinopathy** and **cardiovascular disorders**.
 
-We address the challenge of domain variation in retinal images caused by different imaging equipment. By combining **image preprocessing** and **deep learning**, the model adapts effectively to different datasets.
+The model combines **image preprocessing** and **deep learning** to handle variations in retinal images caused by different imaging devices. Our goal is to achieve accurate segmentation that works across datasets.
 
----
-
-## Dataset
-
-We use two datasets for this project:
-
-1. **DRIVE Dataset** (Training):
-    - 40 retinal images (565×584 resolution) captured with a Canon CR5 camera.
-    - Provides expert-annotated vessel segmentation maps.
-
-2. **CHASE_DB1 Dataset** (Testing):
-    - 28 retinal images (1280×960 resolution) captured with a Nikon NM 210 camera.
-    - Differences in resolution, quality, and field of view make it ideal for testing generalizability.
+<p align="center">
+    <img src="images/project_overview.png" alt="Project Overview" width="500"/>
+</p>
 
 ---
 
-## Method
+## Table of Contents
 
-### Image Processing
-
-To improve model robustness, we apply the following preprocessing steps:
-1. **CLAHE (Contrast Limited Adaptive Histogram Equalization)**:
-   - Enhances vessel visibility while preserving color integrity.
-2. **Image Resizing**:
-   - All images and masks are resized to **256×256** pixels.
-3. **Normalization**:
-   - Images are normalized using ImageNet mean and standard deviation.
-4. **Binarization**:
-   - Segmentation masks are binarized for clean input.
+1. [Datasets](#datasets)
+2. [Pipeline Overview](#pipeline-overview)
+3. [Methodology](#methodology)
+4. [Results](#results)
+5. [How to Run](#how-to-run)
+6. [References](#references)
+7. [Contact](#contact)
 
 ---
 
-### Loss Function
+## Datasets
 
-We use a **Combined Loss** that integrates:
-1. **Dice Loss**: Measures the overlap between predicted masks and ground truth.
-2. **BCEWithLogitsLoss**: Binary cross-entropy loss for pixel-level classification.
+We used the following retinal vessel datasets:
 
-**Combined Loss Formula**:
+| Dataset        | Purpose      | Camera Type                  | Resolution       | Number of Images |
+|----------------|--------------|------------------------------|------------------|------------------|
+| **DRIVE**     | Training     | Canon CR5 (45° FOV)          | 565×584          | 40               |
+| **CHASE_DB1** | Testing      | Nikon NM 210 (30° FOV)       | 1280×960         | 28               |
+
+---
+
+## Pipeline Overview
+
+The project pipeline consists of the following steps:
+
+1. **Data Preprocessing**:
+   - CLAHE (Contrast Limited Adaptive Histogram Equalization) to enhance vessel visibility.
+   - Resize images and masks to **256×256** pixels.
+   - Normalize using ImageNet mean and standard deviation.
+   - Binarize segmentation masks.
+
+2. **Model**:
+   - **U-Net with ResNet-34 encoder** initialized with ImageNet weights.
+   - **Skip connections** for preserving fine-grained spatial details.
+
+3. **Loss Function**:
+   - Combination of **Dice Loss** and **BCEWithLogitsLoss** for accurate segmentation.
+
+4. **Adaptive Batch Normalization**:
+   - Update batch normalization statistics to adapt the model to the target domain.
+
+5. **Evaluation**:
+   - Metrics: **Mean Dice Score** and **Mean IoU Score**.
+   - Visual comparisons between input, predicted masks, and ground truth.
+
+<p align="center">
+    <img src="images/pipeline_overview.png" alt="Pipeline Overview" width="700"/>
+</p>
+
+---
+
+## Methodology
+
+### 1. Image Preprocessing
+
+- CLAHE enhances the visibility of blood vessels while preserving color integrity.
+- Images and masks are resized to **256×256**.
+- Masks are binarized into clean binary maps (0 and 1).
+
+### 2. Loss Function
+
+| Loss Type            | Purpose                           |
+|-----------------------|-----------------------------------|
+| **Dice Loss**        | Measures overlap accuracy         |
+| **BCE Loss**         | Pixel-level binary classification |
+| **Combined Loss**    | Weighted combination of both      |
+
+### Combined Loss Formula:
 \[
 \text{Combined Loss} = 0.5 \times \text{Dice Loss} + 0.5 \times \text{BCE Loss}
 \]
 
----
+### 3. Model
 
-### Model and Optimizer
-
-- **Model**: U-Net architecture with **ResNet-34** encoder initialized with ImageNet weights.
-- **Optimizer**: Adam optimizer with a learning rate of **1×10⁻⁴**.
-
----
-
-### Adaptive Batch Normalization (AdaBN)
-
-To adapt the model to the target domain, we update batch normalization statistics using **AdaBN**. This improves model performance on test images without retraining.
-
----
-
-### Training
-
-- **Epochs**: 300
-- **Batch Size**: 4
-- **Loss**: Combined Loss
-- **Optimizer**: Adam
-
----
-
-### Evaluation and Visualization
-
-We use two primary metrics:
-1. **Mean Dice Score**:
-   - Measures the overlap between predicted and ground truth masks.
-2. **Mean IoU Score** (Intersection over Union):
-   - Measures the ratio of intersection to union between predicted and ground truth masks.
-
-**Qualitative Visualization**:
-- **Input Image**: Original retinal image.
-- **Predicted Mask**: Model output after segmentation.
-- **True Mask**: Ground truth segmentation map.
+- **U-Net** architecture with a **ResNet-34 encoder** pre-trained on ImageNet.
+- **Adam Optimizer**: Learning rate = 1×10⁻⁴.
 
 ---
 
 ## Results
 
-The evaluation metrics are as follows:
+| Metric               | Value    |
+|-----------------------|----------|
+| **Mean Dice Score**  | 0.3019   |
+| **Mean IoU Score**   | 0.1779   |
 
-- **Mean Dice Score**: 0.3019
-- **Mean IoU Score**: 0.1779
+### Sample Results
 
-While the predicted masks capture the overall vessel structure, further improvements are needed to reduce noise and enhance fine-grained vessel details.
+| Input Image          | Predicted Mask       | Ground Truth Mask    |
+|-----------------------|----------------------|----------------------|
+| ![Input](images/input.png) | ![Predicted](images/predicted.png) | ![Ground Truth](images/groundtruth.png) |
+
+*Note: Replace these placeholders with your actual result images.*
 
 ---
 
 ## How to Run
 
 ### Prerequisites
+
 - Python 3.x
 - PyTorch
 - OpenCV
@@ -126,7 +129,7 @@ While the predicted masks capture the overall vessel structure, further improvem
 - Matplotlib
 - segmentation-models-pytorch
 
-### Steps to Run the Project
+### Steps
 
 1. **Clone the Repository**:
    ```bash
@@ -139,7 +142,7 @@ While the predicted masks capture the overall vessel structure, further improvem
    pip install -r requirements.txt
    ```
 
-3. **Run the Training Script**:
+3. **Train the Model**:
    ```bash
    python main.py
    ```
@@ -149,8 +152,8 @@ While the predicted masks capture the overall vessel structure, further improvem
    python main.py --evaluate
    ```
 
-5. **View Results**:
-   - The predicted masks and visualizations will be displayed and saved in the `results/` directory.
+5. **Visualize Results**:
+   - Outputs are saved in the `results/` directory.
 
 ---
 
@@ -161,3 +164,16 @@ While the predicted masks capture the overall vessel structure, further improvem
 3. G. Litjens et al., *"A survey on deep learning in medical image analysis"*, Medical Image Analysis, 2017.
 
 ---
+
+## Contact
+
+For any questions or contributions, feel free to reach out:
+
+- **Name**: [Your Name]
+- **Email**: [Your Email]
+- **GitHub**: [Your GitHub Profile Link]
+- **LinkedIn**: [Your LinkedIn Profile Link]
+
+<p align="center">
+    <b>Thank you for checking out this project!</b> 🚀
+</p>
