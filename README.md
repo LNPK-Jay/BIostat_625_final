@@ -161,10 +161,3 @@ While the predicted masks capture the overall vessel structure, further improvem
 3. G. Litjens et al., *"A survey on deep learning in medical image analysis"*, Medical Image Analysis, 2017.
 
 ---
-
-## Contact
-
-For any questions or issues, feel free to contact:
-- **Name**: [Your Name]
-- **Email**: [Your Email]
-- **GitHub**: [Your GitHub Profile Link]
