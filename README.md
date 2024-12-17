@@ -15,7 +15,6 @@ This project implements **retinal vessel segmentation** using a **U-Net architec
 The model combines **image preprocessing** and **deep learning** to handle variations in retinal images caused by different imaging devices. Our goal is to achieve accurate segmentation that works across datasets.
 
 
-
 ---
 
 ## Table of Contents
@@ -109,11 +108,11 @@ The project pipeline consists of the following steps:
 
 ### Sample Results
 
-| Input Image          | Predicted Mask       | Ground Truth Mask    |
-|-----------------------|----------------------|----------------------|
-| ![Input](images/input.png) | ![Predicted](images/predicted.png) | ![Ground Truth](images/groundtruth.png) |
+<p align="center">
+    <img src="images/sample_results.png" alt="Sample Results" width="700"/>
+</p>
 
-*Note: Replace these placeholders with your actual result images.*
+*Note: Replace the placeholder `images/sample_results.png` with the actual image containing the combined results.*
 
 ---
 
