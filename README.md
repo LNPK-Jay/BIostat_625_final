@@ -65,9 +65,6 @@ The project pipeline consists of the following steps:
    - Metrics: **Mean Dice Score** and **Mean IoU Score**.
    - Visual comparisons between input, predicted masks, and ground truth.
 
-<p align="center">
-    <img src="images/pipeline_overview.png" alt="Pipeline Overview" width="700"/>
-</p>
 
 ---
 
