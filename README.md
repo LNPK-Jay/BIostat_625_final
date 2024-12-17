@@ -170,8 +170,7 @@ The experiments were conducted on the following hardware and software setup:
 ## References
 
 1. Abràmoff, M. D., Garvin, M. K., & Sonka, M. (2010). *Retinal imaging and image analysis*. IEEE Reviews in Biomedical Engineering, 3, 169-208.
-2. Ronneberger, O., Fischer, P., & Brox, T. (2015, October). *U-net: Convolutional networks for biomedical image segmentation*. In International Conference on Medical Image Computing and Computer-Assisted Intervention (pp. 234-241).
-3. Litjens, G., Kooi, T., Bejnordi, B. E., Setio, A. A. A., Ciompi, F., Ghafoorian, M., ... & Sánchez, C. I. (2017). *A survey on deep learning in medical image analysis*. Medical Image Analysis, 42, 60-88.
-4. Ronneberger, O., Fischer, P., & Brox, T. (2015). *U-NET: Convolutional Networks for Biomedical Image Segmentation*. Lecture notes in computer science, 234–241. doi: 10.1007/978-3-319-24574-4_28.
+2. Litjens, G., Kooi, T., Bejnordi, B. E., Setio, A. A. A., Ciompi, F., Ghafoorian, M., ... & Sánchez, C. I. (2017). *A survey on deep learning in medical image analysis*. Medical Image Analysis, 42, 60-88.
+3. Ronneberger, O., Fischer, P., & Brox, T. (2015). *U-NET: Convolutional Networks for Biomedical Image Segmentation*. Lecture notes in computer science, 234–241. doi: 10.1007/978-3-319-24574-4_28.
 
 ---
