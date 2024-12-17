@@ -112,8 +112,6 @@ The project pipeline consists of the following steps:
     <img src="images/sample_results.png" alt="Sample Results" width="700"/>
 </p>
 
-*Note: Replace the placeholder `images/sample_results.png` with the actual image containing the combined results.*
-
 ---
 
 ## System Configuration
@@ -178,16 +176,3 @@ The experiments were conducted on the following hardware and software setup:
 3. G. Litjens et al., *"A survey on deep learning in medical image analysis"*, Medical Image Analysis, 2017.
 
 ---
-
-## Contact
-
-For any questions or contributions, feel free to reach out:
-
-- **Name**: [Your Name]
-- **Email**: [Your Email]
-- **GitHub**: [Your GitHub Profile Link]
-- **LinkedIn**: [Your LinkedIn Profile Link]
-
-<p align="center">
-    <b>Thank you for checking out this project!</b> 🚀
-</p>
