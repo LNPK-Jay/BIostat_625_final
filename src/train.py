@@ -1,6 +1,6 @@
 import torch
 
-def train_model(model, train_loader, criterion, optimizer, device, num_epochs=50):
+def train_model(model, train_loader, criterion, optimizer, device, num_epochs=100):
     model.train()
     for epoch in range(num_epochs):
         epoch_loss = 0
