@@ -24,9 +24,10 @@ The model combines **image preprocessing** and **deep learning** to handle varia
 2. [Pipeline Overview](#pipeline-overview)
 3. [Methodology](#methodology)
 4. [Results](#results)
-5. [How to Run](#how-to-run)
-6. [References](#references)
-7. [Contact](#contact)
+5. [System Configuration](#system-configuration)
+6. [How to Run](#how-to-run)
+7. [References](#references)
+8. [Contact](#contact)
 
 ---
 
@@ -64,6 +65,10 @@ The project pipeline consists of the following steps:
 5. **Evaluation**:
    - Metrics: **Mean Dice Score** and **Mean IoU Score**.
    - Visual comparisons between input, predicted masks, and ground truth.
+
+<p align="center">
+    <img src="images/pipeline_overview.png" alt="Pipeline Overview" width="700"/>
+</p>
 
 ---
 
@@ -109,6 +114,22 @@ The project pipeline consists of the following steps:
 | ![Input](images/input.png) | ![Predicted](images/predicted.png) | ![Ground Truth](images/groundtruth.png) |
 
 *Note: Replace these placeholders with your actual result images.*
+
+---
+
+## System Configuration
+
+The experiments were conducted on the following hardware and software setup:
+
+| Component               | Details                       |
+|--------------------------|-------------------------------|
+| **CPU**                 | AMD Ryzen 7 (3.2 GHz, 8 Cores) |
+| **GPU 1**               | AMD Radeon(TM) Graphics (2GB) |
+| **GPU 2**               | NVIDIA GeForce RTX 3070 Laptop GPU (4GB) |
+| **RAM**                 | 16 GB                         |
+| **Operating System**    | Windows 10                    |
+| **Python Version**      | 3.x                           |
+| **Framework**           | PyTorch                       |
 
 ---
 
