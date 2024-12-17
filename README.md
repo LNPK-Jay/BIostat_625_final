@@ -85,9 +85,8 @@ The project pipeline consists of the following steps:
 | **Combined Loss**    | Weighted combination of both      |
 
 ### Combined Loss Formula:
-\[
-\text{Combined Loss} = 0.5 * \text{Dice Loss} + 0.5 * \text{BCE Loss}
-\]
+Combined Loss = \( 0.5 \cdot \text{Dice Loss} + 0.5 \cdot \text{BCE Loss} \)
+
 
 
 
