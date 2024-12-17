@@ -1,5 +1,6 @@
 import numpy as np
 
+#Denormalize fucntion
 def denormalize(image, mean, std):
     image = image.numpy().transpose(1, 2, 0)
     image = (image * std) + mean
