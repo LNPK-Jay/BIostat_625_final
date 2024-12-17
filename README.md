@@ -14,9 +14,7 @@ This project implements **retinal vessel segmentation** using a **U-Net architec
 
 The model combines **image preprocessing** and **deep learning** to handle variations in retinal images caused by different imaging devices. Our goal is to achieve accurate segmentation that works across datasets.
 
-<p align="center">
-    <img src="images/project_overview.png" alt="Project Overview" width="500"/>
-</p>
+
 
 ---
 
