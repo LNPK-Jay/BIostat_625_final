@@ -104,7 +104,7 @@ The project pipeline consists of the following steps:
 | **Mean IoU Score**   | 0.1779   |
 
 ### Sample Results
-<p align="center" style="margin-top: -10px; margin-bottom: 5px;">
+<p align="center" style="margin-top: -30px; margin-bottom: 5px;">
     <img src="sample_images.png" alt="Sample Results" width="500" style="margin-top: 0px; margin-bottom: 0px;"/>
 </p>
 
