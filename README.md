@@ -109,7 +109,7 @@ The project pipeline consists of the following steps:
 ### Sample Results
 
 <p align="center">
-    <img src="images/sample_results.png" alt="Sample Results" width="700"/>
+    <img src="sample_images.png" alt="Sample Results" width="700"/>
 </p>
 
 ---
